@@ -24,6 +24,7 @@
 }
 
 #content-toolbar {
-  background-color: #a9e4a5;
-  min-height: 8vh;
+  display: flex;
+  justify-content: end;
+  gap: 20px;
 }
