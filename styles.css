@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#main-wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+#header {
+  min-height: 10vh;
+}
+
+#content-wrapper {
+  min-height: 90vh;
+}
