@@ -10,10 +10,20 @@
   background-color: #a5c8e4;
 }
 
-#header {
-  min-height: 10vh;
+#header,
+#logo-wrapper {
+  min-height: 8vh;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
 }
 
 #content-wrapper {
   min-height: 90vh;
+}
+
+#content-toolbar {
+  background-color: #a9e4a5;
+  min-height: 8vh;
 }
