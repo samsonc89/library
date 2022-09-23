@@ -7,7 +7,7 @@
   display: grid;
   grid-template-rows: auto 1fr;
   padding: 20px 100px;
-  background-color: teal;
+  background-color: #a5c8e4;
 }
 
 #header {
