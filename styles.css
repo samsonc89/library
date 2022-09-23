@@ -29,6 +29,14 @@
   gap: 20px;
 }
 
+#card-container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 30%));
+  grid-auto-rows: 200px;
+  justify-content: center;
+}
+
 .card {
   background-color: #e4c1a5;
 }
