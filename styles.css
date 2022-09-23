@@ -28,3 +28,7 @@
   justify-content: end;
   gap: 20px;
 }
+
+.card {
+  background-color: #e4c1a5;
+}
