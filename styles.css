@@ -42,8 +42,17 @@
   background-color: #e4c1a5;
   text-align: center;
   padding-top: 15px;
+  overflow: auto;
 }
 
 .book-title {
-  font-size: 2rem;
+  font-size: 3vw;
+}
+
+.book-author {
+  font-size: 2vw;
+}
+
+.card p {
+  margin-bottom: 5px;
 }
