@@ -24,20 +24,21 @@ window.onclick = function (event) {
   }
 };
 
-function Book(title, author, pages, status) {
+function Book(title, author, pages) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.status = status;
+  // this.status = status;
   this.info = function () {
-    return `${this.title} by ${this.author}, ${this.pages} pages, ${status}`;
+    return `${this.title} by ${this.author}, ${this.pages} pages`;
   };
 }
 
-addBtn.addEventListener("click", () => {
-  function addBookToLibrary() {
-    let book = new Book();
-    myLibrary.push(book);
-    console.log(myLibrary);
-  }
-});
+function addBookToLibrary() {
+  let book = new Book(titleInput.value, authorInput.value, pagesInput.value);
+  myLibrary.push(book);
+  modal.style.display = "none";
+  console.log(myLibrary);
+}
+
+addBtn.addEventListener("click", addBookToLibrary);
