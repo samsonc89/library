@@ -38,6 +38,7 @@ function addBookToLibrary() {
   let book = new Book(titleInput.value, authorInput.value, pagesInput.value);
   myLibrary.push(book);
   modal.style.display = "none";
+  titleInput.value = authorInput.value = pagesInput.value = "";
   console.log(myLibrary);
 }
 
