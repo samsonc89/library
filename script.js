@@ -24,6 +24,12 @@ window.onclick = function (event) {
   }
 };
 
+document.querySelector(".new-book-form").addEventListener("keyup", (event) => {
+  if (event.key !== "Enter") return;
+  addBtn.click();
+  event.preventDefault();
+});
+
 function Book(title, author, pages) {
   this.title = title;
   this.author = author;
