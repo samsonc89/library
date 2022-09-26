@@ -1,6 +1,12 @@
 "use strict";
 
-let myLibrary = [];
+let myLibrary = [
+  {
+    title: "Harry Potter & Your Mom",
+    author: "J.K. Doctor",
+    pagesL 243
+  },
+];
 
 const modal = document.querySelector("#bookModal");
 const newBook = document.querySelector("#new-book-btn");
@@ -51,3 +57,4 @@ function addBookToLibrary() {
 }
 
 addBtn.addEventListener("click", addBookToLibrary);
+
