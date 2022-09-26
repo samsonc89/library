@@ -53,6 +53,12 @@
   width: 40%; /* Could be more or less, depending on screen size */
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 /* The Close Button */
 .close {
   color: #aaa;
