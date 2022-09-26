@@ -16,11 +16,13 @@ newBook.onclick = function () {
 
 span.onclick = function () {
   modal.style.display = "none";
+  titleInput.value = authorInput.value = pagesInput.value = "";
 };
 
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    titleInput.value = authorInput.value = pagesInput.value = "";
   }
 };
 
