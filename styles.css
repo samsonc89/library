@@ -110,6 +110,11 @@ input::-webkit-inner-spin-button {
 
 .card-btns {
   margin-top: auto;
+  margin-left: auto;
+  margin-right: 30px;
+  display: flex;
+  justify-content: end;
+  gap: 20px;
 }
 
 /* The switch - the box around the slider */
