@@ -65,11 +65,13 @@ function addElem(book) {
   <p class="book-author">${book.author}</p>
   <p class="pages">${book.pages} pages</p>
   <div class="card-btns">
-  <button class="delete">Delete</button>
+  <div>
   <label class="switch">
   <input type="checkbox">
   <span class="slider round"></span>
-</label>
+  </label> Read
+  </div>
+  <button class="delete">Delete</button>
   </div>`;
 
   cardContainer.insertAdjacentHTML("beforeend", html);
@@ -84,11 +86,13 @@ function displayBooks() {
     <p class="book-author">${book.author}</p>
     <p class="pages">${book.pages} pages</p>
     <div class="card-btns">
-    <button class="delete">Delete</button>
+    <div>
     <label class="switch">
-  <input type="checkbox">
-  <span class="slider round"></span> 
-</label> Read
+    <input type="checkbox">
+    <span class="slider round"></span> 
+    </label> Read
+    </div>
+    <button class="delete">Delete</button>
     </div>`;
 
     cardContainer.insertAdjacentHTML("beforeend", html);
