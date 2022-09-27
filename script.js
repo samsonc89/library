@@ -32,12 +32,14 @@ document.querySelector(".new-book-form").addEventListener("keyup", (event) => {
 
 function Book(title, author, pages) {
   this.title = title
+    .trim()
     .split(" ")
     .map((word) => {
       return word[0].toUpperCase() + word.substring(1).toLowerCase();
     })
     .join(" ");
   this.author = author
+    .trim()
     .split(" ")
     .map((word) => {
       return word[0].toUpperCase() + word.substring(1).toLowerCase();
