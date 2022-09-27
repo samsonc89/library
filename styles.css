@@ -114,9 +114,15 @@ input::-webkit-inner-spin-button {
   margin-right: 30px;
   display: flex;
   justify-content: end;
-  gap: 20px;
+  gap: 10px;
+  align-items: center;
 }
 
+.read-switch {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 /* The switch - the box around the slider */
 .switch {
   position: relative;
