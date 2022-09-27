@@ -29,7 +29,12 @@ document.querySelector(".new-book-form").addEventListener("keyup", (event) => {
 });
 
 function Book(title, author, pages) {
-  this.title = title;
+  this.title = title
+    .split(" ")
+    .map((word) => {
+      return word[0].toUpperCase() + word.substring(1).toLowerCase();
+    })
+    .join(" ");
   this.author = author;
   this.pages = pages;
   // this.status = status;
@@ -39,17 +44,19 @@ function Book(title, author, pages) {
 }
 
 function addBookToLibrary() {
-  let book = new Book(titleInput.value, authorInput.value, pagesInput.value);
-  myLibrary.push(book);
-  addElem();
+  let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value);
+  myLibrary.push(newBook);
+  console.log(newBook);
+  addElem(newBook);
   modal.style.display = "none";
   titleInput.value = authorInput.value = pagesInput.value = "";
   console.log(myLibrary);
+  // displayBooks();
 }
 
 function addElem() {
   const html = `<div class="card">
-  <h3 class="book-title">${titleInput.value}</h3>
+  <h3 class="book-title">${newBook.title}</h3>
   <p class="book-author">${authorInput.value}</p>
   <p class="pages">${pagesInput.value} pages</p>
   <div class="card-btns">
@@ -62,6 +69,7 @@ function addElem() {
 
 //Display all books
 function displayBooks() {
+  cardContainer.innerHTML = "";
   myLibrary.forEach((book) => {
     const html = `<div class="card">
     <h3 class="book-title">${book.title}</h3>
