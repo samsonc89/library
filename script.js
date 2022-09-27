@@ -4,7 +4,7 @@ let myLibrary = [
   {
     title: "Harry Potter & Your Mom",
     author: "J.K. Doctor",
-    pagesL 243
+    pages: 243,
   },
 ];
 
@@ -15,6 +15,7 @@ const addBtn = document.querySelector("#add-btn");
 const titleInput = document.querySelector("#title");
 const authorInput = document.querySelector("#author");
 const pagesInput = document.querySelector("#pages");
+const cardContainer = document.querySelector("#card-container");
 
 newBook.onclick = function () {
   modal.style.display = "block";
@@ -51,10 +52,23 @@ function Book(title, author, pages) {
 function addBookToLibrary() {
   let book = new Book(titleInput.value, authorInput.value, pagesInput.value);
   myLibrary.push(book);
+  addElem();
   modal.style.display = "none";
   titleInput.value = authorInput.value = pagesInput.value = "";
   console.log(myLibrary);
 }
 
-addBtn.addEventListener("click", addBookToLibrary);
+function addElem() {
+  const html = `<div class="card">
+  <h3 class="book-title">${titleInput.value}</h3>
+  <p class="book-author">${authorInput.value}</p>
+  <p class="pages">${pagesInput.value} pages</p>
+  <div class="card-btns">
+  <button class="delete">Delete</button>
+  <button class="complete">Complete</button>
+  </div>`;
 
+  cardContainer.insertAdjacentHTML("beforeend", html);
+}
+
+addBtn.addEventListener("click", addBookToLibrary);
