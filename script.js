@@ -5,11 +5,13 @@ let myLibrary = [
     title: "Harry Potter & The Sorcerer's Stone",
     author: "J.K. Rowling",
     pages: 309,
+    "date added": "08-30-2022",
   },
   {
     title: "The Alchemist",
     author: "Paulo Coelho",
     pages: 197,
+    "date added": "08-30-2022",
   },
 ];
 
@@ -21,7 +23,6 @@ const titleInput = document.querySelector("#title");
 const authorInput = document.querySelector("#author");
 const pagesInput = document.querySelector("#pages");
 const cardContainer = document.querySelector("#card-container");
-const readBtns = document.querySelectorAll(".switch");
 
 document.querySelector(".new-book-form").addEventListener("keyup", (event) => {
   if (event.key !== "Enter") return;
@@ -44,8 +45,12 @@ function Book(title, author, pages) {
     .join(" ");
   this.pages = pages;
   // this.status = status;
-  this.info = function () {
-    return `${this.title} by ${this.author}, ${this.pages} pages`;
+  this.status = function () {
+    // const checkbox = this checkbox
+    // if (this checkbox is checked);
+    // {
+    //   console.log("this");
+    // }
   };
 }
 
@@ -61,14 +66,21 @@ function addBookToLibrary() {
 }
 
 function addElem(book) {
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, "0");
+  var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var yyyy = today.getFullYear();
+
+  book["date added"] = today = mm + "-" + dd + "-" + yyyy;
   const html = `<div class="card">
   <h3 class="book-title">${book.title}</h3>
   <p class="book-author">${book.author}</p>
   <p class="pages">${book.pages} pages</p>
+  <p class="date-added">Added: ${book["date added"]}</p>
   <div class="card-btns">
   <div class='read-switch'>
   <label class="switch">
-  <input type="checkbox">
+  <input type="checkbox" name='read'>
   <span class="slider round"></span>
   </label> Read
   </div> |
@@ -86,10 +98,11 @@ function displayBooks() {
     <h3 class="book-title">${book.title}</h3>
     <p class="book-author">${book.author}</p>
     <p class="pages">${book.pages} pages</p>
+    <p class="date-added">Added: ${book["date added"]}</p>
     <div class="card-btns">
     <div class='read-switch'>
     <label class="switch">
-    <input type="checkbox">
+    <input type="checkbox" name='read'>
     <span class="slider round"></span> 
     </label> Read
     </div> |
