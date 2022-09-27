@@ -21,6 +21,7 @@ const titleInput = document.querySelector("#title");
 const authorInput = document.querySelector("#author");
 const pagesInput = document.querySelector("#pages");
 const cardContainer = document.querySelector("#card-container");
+const readBtns = document.querySelectorAll(".switch");
 
 document.querySelector(".new-book-form").addEventListener("keyup", (event) => {
   if (event.key !== "Enter") return;
@@ -65,12 +66,12 @@ function addElem(book) {
   <p class="book-author">${book.author}</p>
   <p class="pages">${book.pages} pages</p>
   <div class="card-btns">
-  <div>
+  <div class='read-switch'>
   <label class="switch">
   <input type="checkbox">
   <span class="slider round"></span>
   </label> Read
-  </div>
+  </div> |
   <button class="delete">Delete</button>
   </div>`;
 
@@ -86,12 +87,12 @@ function displayBooks() {
     <p class="book-author">${book.author}</p>
     <p class="pages">${book.pages} pages</p>
     <div class="card-btns">
-    <div>
+    <div class='read-switch'>
     <label class="switch">
     <input type="checkbox">
     <span class="slider round"></span> 
     </label> Read
-    </div>
+    </div> |
     <button class="delete">Delete</button>
     </div>`;
 
