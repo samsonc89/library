@@ -2,9 +2,14 @@
 
 let myLibrary = [
   {
-    title: "Harry Potter & Your Mom",
-    author: "J.K. Doctor",
-    pages: 243,
+    title: "Harry Potter & The Sorcerer's Stone",
+    author: "J.K. Rowling",
+    pages: 309,
+  },
+  {
+    title: "The Alchemist",
+    author: "Paulo Coelho",
+    pages: 197,
   },
 ];
 
