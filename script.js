@@ -35,7 +35,12 @@ function Book(title, author, pages) {
       return word[0].toUpperCase() + word.substring(1).toLowerCase();
     })
     .join(" ");
-  this.author = author;
+  this.author = author
+    .split(" ")
+    .map((word) => {
+      return word[0].toUpperCase() + word.substring(1).toLowerCase();
+    })
+    .join(" ");
   this.pages = pages;
   // this.status = status;
   this.info = function () {
@@ -54,14 +59,17 @@ function addBookToLibrary() {
   // displayBooks();
 }
 
-function addElem() {
+function addElem(book) {
   const html = `<div class="card">
-  <h3 class="book-title">${newBook.title}</h3>
-  <p class="book-author">${authorInput.value}</p>
-  <p class="pages">${pagesInput.value} pages</p>
+  <h3 class="book-title">${book.title}</h3>
+  <p class="book-author">${book.author}</p>
+  <p class="pages">${book.pages} pages</p>
   <div class="card-btns">
   <button class="delete">Delete</button>
-  <button class="complete">Complete</button>
+  <label class="switch">Read
+  <input type="checkbox">
+  <span class="slider round"></span>
+</label>
   </div>`;
 
   cardContainer.insertAdjacentHTML("beforeend", html);
@@ -77,7 +85,10 @@ function displayBooks() {
     <p class="pages">${book.pages} pages</p>
     <div class="card-btns">
     <button class="delete">Delete</button>
-    <button class="complete">Complete</button>
+    <label class="switch">Read
+  <input type="checkbox">
+  <span class="slider round"></span>
+</label>
     </div>`;
 
     cardContainer.insertAdjacentHTML("beforeend", html);
