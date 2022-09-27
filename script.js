@@ -17,22 +17,6 @@ const authorInput = document.querySelector("#author");
 const pagesInput = document.querySelector("#pages");
 const cardContainer = document.querySelector("#card-container");
 
-newBook.onclick = function () {
-  modal.style.display = "block";
-};
-
-span.onclick = function () {
-  modal.style.display = "none";
-  titleInput.value = authorInput.value = pagesInput.value = "";
-};
-
-window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-    titleInput.value = authorInput.value = pagesInput.value = "";
-  }
-};
-
 document.querySelector(".new-book-form").addEventListener("keyup", (event) => {
   if (event.key !== "Enter") return;
   addBtn.click();
@@ -71,4 +55,38 @@ function addElem() {
   cardContainer.insertAdjacentHTML("beforeend", html);
 }
 
+//Display all books
+function displayBooks() {
+  myLibrary.forEach((book) => {
+    const html = `<div class="card">
+    <h3 class="book-title">${book.title}</h3>
+    <p class="book-author">${book.author}</p>
+    <p class="pages">${book.pages} pages</p>
+    <div class="card-btns">
+    <button class="delete">Delete</button>
+    <button class="complete">Complete</button>
+    </div>`;
+
+    cardContainer.insertAdjacentHTML("beforeend", html);
+  });
+}
+
+displayBooks();
+//Buttons/ Click events
 addBtn.addEventListener("click", addBookToLibrary);
+
+newBook.onclick = function () {
+  modal.style.display = "block";
+};
+
+span.onclick = function () {
+  modal.style.display = "none";
+  titleInput.value = authorInput.value = pagesInput.value = "";
+};
+
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+    titleInput.value = authorInput.value = pagesInput.value = "";
+  }
+};
