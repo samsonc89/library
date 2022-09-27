@@ -66,7 +66,7 @@ function addElem(book) {
   <p class="pages">${book.pages} pages</p>
   <div class="card-btns">
   <button class="delete">Delete</button>
-  <label class="switch">Read
+  <label class="switch">
   <input type="checkbox">
   <span class="slider round"></span>
 </label>
@@ -85,10 +85,10 @@ function displayBooks() {
     <p class="pages">${book.pages} pages</p>
     <div class="card-btns">
     <button class="delete">Delete</button>
-    <label class="switch">Read
+    <label class="switch">
   <input type="checkbox">
-  <span class="slider round"></span>
-</label>
+  <span class="slider round"></span> 
+</label> Read
     </div>`;
 
     cardContainer.insertAdjacentHTML("beforeend", html);
