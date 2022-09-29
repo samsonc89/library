@@ -78,7 +78,7 @@ input::-webkit-inner-spin-button {
 #card-container {
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   grid-auto-rows: 250px;
   justify-content: center;
 }
@@ -176,9 +176,9 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(16px);
-  -ms-transform: translateX(16px);
-  transform: translateX(16px);
+  -webkit-transform: translateX(calc(83%));
+  -ms-transform: translateX(calc(83%));
+  transform: translateX(calc(83%));
 }
 
 /* Rounded sliders */
