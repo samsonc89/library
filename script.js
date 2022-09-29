@@ -58,6 +58,7 @@ function Book(title, author, pages) {
   };
 }
 
+//Generate ID so it makes deleting the html element and object in array easier
 function generateID() {
   //create random 6 digit "id"
   let randomID = Math.floor(100000 + Math.random() * 900000);
@@ -113,7 +114,7 @@ function addElem(book) {
 function displayBooks() {
   cardContainer.innerHTML = "";
   myLibrary.forEach((book) => {
-    const html = `<div class="card">
+    const html = `<div class="card" id='${book.id}'>
     <h3 class="book-title">${book.title}</h3>
     <p class="book-author">${book.author}</p>
     <p class="pages">${book.pages} pages</p>
