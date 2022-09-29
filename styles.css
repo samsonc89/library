@@ -30,6 +30,16 @@
   margin: 20px;
 }
 
+#new-book-btn {
+  background-color: #a5c8e4;
+  border: NONE;
+  height: 40px;
+  width: 40px;
+}
+#book-icon {
+  height: 100%;
+  width: 100%;
+}
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
