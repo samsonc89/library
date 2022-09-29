@@ -33,7 +33,13 @@ document.querySelector(".new-book-form").addEventListener("keyup", (event) => {
   event.preventDefault();
 });
 
-function Book(title, author, pages) {
+function clearModal() {
+  modal.style.display = "none";
+  titleInput.value = authorInput.value = pagesInput.value = "";
+  statusInput.checked = false;
+}
+
+function Book(title, author, pages, status) {
   this.title = title
     .trim()
     .split(" ")
@@ -49,14 +55,7 @@ function Book(title, author, pages) {
     })
     .join(" ");
   this.pages = pages;
-  // this.status = status;
-  this.status = function () {
-    // const checkbox = this checkbox
-    // if (this checkbox is checked);
-    // {
-    //   console.log("this");
-    // }
-  };
+  this.status = status;
 }
 
 //Generate ID so it makes deleting the html element and object in array easier
@@ -74,14 +73,18 @@ function generateID() {
 }
 
 function addBookToLibrary() {
-  let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value);
+  let newBook = new Book(
+    titleInput.value,
+    authorInput.value,
+    pagesInput.value,
+    statusInput.checked
+  );
 
   newBook.id = generateID();
   myLibrary.push(newBook);
   console.log(newBook);
   addElem(newBook);
-  modal.style.display = "none";
-  titleInput.value = authorInput.value = pagesInput.value = "";
+  clearModal();
   console.log(myLibrary);
   // displayBooks();
 }
@@ -102,7 +105,7 @@ function addElem(book) {
   <div class='read-switch'>
   <p class='label-unread'>Not Read</p>
   <label class="switch">
-  <input type="checkbox" name='read' ${book.status ? "checked" : ""}>
+  <input type="checkbox" name='read' ${book.status == true ? "checked" : ""}>
   <span class="slider round"></span>
   </label> <p class='label-read'>Read</p>
   </div> |
@@ -153,14 +156,12 @@ newBook.onclick = function () {
 };
 
 span.onclick = function () {
-  modal.style.display = "none";
-  titleInput.value = authorInput.value = pagesInput.value = "";
+  clearModal();
 };
 
 window.onclick = function (event) {
   if (event.target == modal) {
-    modal.style.display = "none";
-    titleInput.value = authorInput.value = pagesInput.value = "";
+    clearModal();
   }
 };
 
