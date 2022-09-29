@@ -6,6 +6,7 @@ let myLibrary = [
     author: "J.K. Rowling",
     pages: 309,
     "date added": "08-30-2022",
+    id: 1234,
   },
   {
     title: "The Alchemist",
@@ -56,8 +57,20 @@ function Book(title, author, pages) {
   };
 }
 
+function generateID() {
+  //create random 6 digit "id"
+  let randomID = Math.floor(100000 + Math.random() * 900000);
+  //search myLibrary for object that has property value with same id
+  if (myLibrary.some((obj) => obj.id === randomID)) {
+    generateID();
+  } else {
+    return randomID;
+  }
+}
+
 function addBookToLibrary() {
   let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value);
+  newBook.id = generateID();
   myLibrary.push(newBook);
   console.log(newBook);
   addElem(newBook);
