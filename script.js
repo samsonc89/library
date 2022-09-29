@@ -68,10 +68,10 @@ function addBookToLibrary() {
 }
 
 function addElem(book) {
-  var today = new Date();
-  var dd = String(today.getDate()).padStart(2, "0");
-  var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-  var yyyy = today.getFullYear();
+  let today = new Date();
+  let dd = String(today.getDate()).padStart(2, "0");
+  let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  let yyyy = today.getFullYear();
 
   book["date added"] = today = mm + "-" + dd + "-" + yyyy;
   const html = `<div class="card">
@@ -81,10 +81,11 @@ function addElem(book) {
   <p class="date-added">Added: ${book["date added"]}</p>
   <div class="card-btns">
   <div class='read-switch'>
+  <p class='label-unread'>Not Read</p>
   <label class="switch">
   <input type="checkbox" name='read'>
   <span class="slider round"></span>
-  </label> Read
+  </label> <p class='label-read'>Read</p>
   </div> |
   <button class="delete">Delete</button>
   </div>`;
@@ -103,10 +104,11 @@ function displayBooks() {
     <p class="date-added">Added: ${book["date added"]}</p>
     <div class="card-btns">
     <div class='read-switch'>
+    <p class='label-unread'>Not Read</p>
     <label class="switch">
     <input type="checkbox" name='read'>
     <span class="slider round"></span> 
-    </label> Read
+    </label> <p class='label-read'>Read</p>
     </div> |
     <button class="delete">Delete</button>
     </div>`;
@@ -134,3 +136,19 @@ window.onclick = function (event) {
     titleInput.value = authorInput.value = pagesInput.value = "";
   }
 };
+
+const checkBtn = document.querySelectorAll("input[type=checkbox");
+
+checkBtn.forEach((btn) => {
+  btn.addEventListener("change", (event) => {
+    console.log(event.currentTarget);
+  });
+});
+
+/*
+When you create a new book. Generate a new id on the object and on the button
+
+WHen the check box is clicked. find the object with the matching id
+
+set a new property for date completed
+*/
