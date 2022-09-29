@@ -123,6 +123,10 @@ input::-webkit-inner-spin-button {
   align-items: center;
   gap: 5px;
 }
+
+.read-switch p {
+  margin: 0;
+}
 /* The switch - the box around the slider */
 .switch {
   position: relative;
