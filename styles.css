@@ -97,6 +97,11 @@ input::-webkit-inner-spin-button {
 }
 
 .book-author {
+  font-size: 2.3vw;
+}
+
+.pages,
+.date-added {
   font-size: 2vw;
 }
 
