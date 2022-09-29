@@ -24,6 +24,7 @@ const addBtn = document.querySelector("#add-btn");
 const titleInput = document.querySelector("#title");
 const authorInput = document.querySelector("#author");
 const pagesInput = document.querySelector("#pages");
+const statusInput = document.querySelector("#status");
 const cardContainer = document.querySelector("#card-container");
 
 document.querySelector(".new-book-form").addEventListener("keyup", (event) => {
@@ -74,6 +75,7 @@ function generateID() {
 
 function addBookToLibrary() {
   let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value);
+
   newBook.id = generateID();
   myLibrary.push(newBook);
   console.log(newBook);
@@ -100,7 +102,7 @@ function addElem(book) {
   <div class='read-switch'>
   <p class='label-unread'>Not Read</p>
   <label class="switch">
-  <input type="checkbox" name='read'>
+  <input type="checkbox" name='read' ${book.status ? "checked" : ""}>
   <span class="slider round"></span>
   </label> <p class='label-read'>Read</p>
   </div> |
