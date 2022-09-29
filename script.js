@@ -6,13 +6,14 @@ let myLibrary = [
     author: "J.K. Rowling",
     pages: 309,
     "date added": "08-30-2022",
-    id: 1234,
+    id: 123456,
   },
   {
     title: "The Alchemist",
     author: "Paulo Coelho",
     pages: 197,
     "date added": "08-30-2022",
+    id: 234567,
   },
 ];
 
@@ -60,12 +61,14 @@ function Book(title, author, pages) {
 function generateID() {
   //create random 6 digit "id"
   let randomID = Math.floor(100000 + Math.random() * 900000);
+  console.log(randomID);
+
   //search myLibrary for object that has property value with same id
-  if (myLibrary.some((obj) => obj.id === randomID)) {
-    generateID();
-  } else {
-    return randomID;
+  while (myLibrary.some((obj) => obj.id === randomID)) {
+    randomID = Math.floor(100000 + Math.random() * 900000);
+    console.log(randomID);
   }
+  return randomID;
 }
 
 function addBookToLibrary() {
@@ -87,7 +90,7 @@ function addElem(book) {
   let yyyy = today.getFullYear();
 
   book["date added"] = today = mm + "-" + dd + "-" + yyyy;
-  const html = `<div class="card">
+  const html = `<div class="card" id='${book.id}'>
   <h3 class="book-title">${book.title}</h3>
   <p class="book-author">${book.author}</p>
   <p class="pages">${book.pages} pages</p>
