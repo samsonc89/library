@@ -93,16 +93,16 @@ input::-webkit-inner-spin-button {
 }
 
 .book-title {
-  font-size: 3vw;
+  font-size: 2rem;
 }
 
 .book-author {
-  font-size: 2.3vw;
+  font-size: 1.5rem;
 }
 
 .pages,
 .date-added {
-  font-size: 2vw;
+  font-size: 1.2rem;
 }
 
 .card p {
