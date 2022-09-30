@@ -173,7 +173,6 @@ window.onclick = function (event) {
 
 function deleteCard(event) {
   let objID = event.target.closest(".card").id;
-  console.log(objID);
   let testingObj = myLibrary.find((book) => book.id == objID);
   myLibrary.splice(myLibrary.indexOf(testingObj), 1);
   event.target.closest(".card").remove();
