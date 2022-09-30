@@ -144,7 +144,7 @@ function displayBooks() {
     <span class="slider round"></span> 
     </label> <p class='label-read'>Read</p>
     </div> |
-    <button class="delete-btn" onclick='deleteCard(event)'>
+    <button class="delete-btn" >
     ${deleteSVG}
     </button>
     </div>`;
@@ -172,19 +172,22 @@ window.onclick = function (event) {
 };
 
 function deleteCard(event) {
-  let objID = event.currentTarget.parentNode.parentNode.id;
+  let objID = event.target.closest(".card").id;
+  console.log(objID);
   let testingObj = myLibrary.find((book) => book.id == objID);
   myLibrary.splice(myLibrary.indexOf(testingObj), 1);
-  event.currentTarget.parentNode.parentNode.remove();
+  event.target.closest(".card").remove();
 }
 
 cardContainer.addEventListener("click", (event) => {
   if (event.target && event.target.classList.contains("slider")) {
     statusChange(event);
+  } else if (event.target && event.target.closest(".delete-btn")) {
+    deleteCard(event);
   }
 });
 function statusChange(event) {
-  let objID = event.target.parentNode.parentNode.parentNode.parentNode.id;
+  let objID = event.target.closest(".card").id;
   let testingObj = myLibrary.find((book) => book.id == objID);
   testingObj.status = !testingObj.status;
   console.log(testingObj);
