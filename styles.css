@@ -101,6 +101,7 @@ input::-webkit-inner-spin-button {
   display: flex;
   flex-direction: column;
   border: 1px solid black;
+  box-shadow: 5px 5px black;
 }
 
 .book-title {
