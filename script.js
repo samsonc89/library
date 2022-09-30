@@ -130,7 +130,6 @@ function addElem(book) {
 
 //Display all books
 function displayBooks() {
-  cardContainer.innerHTML = "";
   myLibrary.forEach((book) => {
     const html = `<div class="card" id='${book.id}'>
     <h3 class="book-title">${book.title}</h3>
@@ -139,7 +138,7 @@ function displayBooks() {
     <p class="date-added">Added: ${book["date added"]}</p>
     <div class="card-btns">
     <div class='read-switch'>
-    <p class='label-status '>${book.status ? "Read" : "Not Read"}</p>
+    <p class='label-status '>${book.status == true ? "Read" : "Not Read"}</p>
     <label class="switch">
     <input type="checkbox" name='read' ${book.status == true ? "checked" : ""}>
     <span class="slider round"></span> 
@@ -189,8 +188,9 @@ cardContainer.addEventListener("click", (event) => {
 function statusChange(event) {
   let objID = event.target.closest(".card").id;
   let testingObj = myLibrary.find((book) => book.id == objID);
-
+  let uncleElem = event.target.closest("label").previousElementSibling;
   testingObj.status = !testingObj.status;
+  uncleElem.textContent = `${testingObj.status == true ? "Read" : "Not Read"}`;
 }
 /*
 if the object.status = true
