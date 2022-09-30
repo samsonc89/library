@@ -7,6 +7,7 @@ let myLibrary = [
     pages: 309,
     "date added": "08-30-2022",
     id: 123456,
+    status: false,
   },
   {
     title: "The Alchemist",
@@ -14,6 +15,7 @@ let myLibrary = [
     pages: 197,
     "date added": "08-30-2022",
     id: 234567,
+    status: false,
   },
 ];
 
@@ -117,7 +119,7 @@ function addElem(book) {
   <span class="slider round"></span>
   </label> <p class='label-read'>Read</p>
   </div> |
-  <button class="delete-btn" onclick='deleteTest(event)'>
+  <button class="delete-btn" onclick='deleteCard(event)'>
   ${deleteSVG}
   </button>
   </div>`;
@@ -142,7 +144,7 @@ function displayBooks() {
     <span class="slider round"></span> 
     </label> <p class='label-read'>Read</p>
     </div> |
-    <button class="delete-btn" onclick='deleteTest(event)'>
+    <button class="delete-btn" onclick='deleteCard(event)'>
     ${deleteSVG}
     </button>
     </div>`;
@@ -169,11 +171,15 @@ window.onclick = function (event) {
   }
 };
 
-function deleteTest(event) {
+function deleteCard(event) {
   let objID = event.currentTarget.parentNode.parentNode.id;
   let testingObj = myLibrary.find((book) => book.id == objID);
   myLibrary.splice(myLibrary.indexOf(testingObj), 1);
   event.currentTarget.parentNode.parentNode.remove();
+}
+function statusChange(event) {
+  let objID = event.currentTarget.parentNode.parentNode.id;
+  let testingObj = myLibrary.find((book) => book.id == objID);
 }
 /*
 When you create a new book. Generate a new id on the object and on the button
