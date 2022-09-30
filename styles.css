@@ -100,6 +100,7 @@ input::-webkit-inner-spin-button {
   overflow: auto;
   display: flex;
   flex-direction: column;
+  border: 1px solid black;
 }
 
 .book-title {
@@ -205,4 +206,8 @@ input:checked + .slider:before {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
