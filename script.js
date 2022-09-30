@@ -119,7 +119,7 @@ function addElem(book) {
   <span class="slider round"></span>
   </label> <p class='label-read'>Read</p>
   </div> |
-  <button class="delete-btn" onclick='deleteCard(event)'>
+  <button class="delete-btn">
   ${deleteSVG}
   </button>
   </div>`;
