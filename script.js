@@ -177,9 +177,17 @@ function deleteCard(event) {
   myLibrary.splice(myLibrary.indexOf(testingObj), 1);
   event.currentTarget.parentNode.parentNode.remove();
 }
+
+cardContainer.addEventListener("click", (event) => {
+  if (event.target && event.target.classList.contains("slider")) {
+    statusChange(event);
+  }
+});
 function statusChange(event) {
-  let objID = event.currentTarget.parentNode.parentNode.id;
+  let objID = event.target.parentNode.parentNode.parentNode.parentNode.id;
   let testingObj = myLibrary.find((book) => book.id == objID);
+  testingObj.status = !testingObj.status;
+  console.log(testingObj);
 }
 /*
 When you create a new book. Generate a new id on the object and on the button
