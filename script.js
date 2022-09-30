@@ -20,7 +20,12 @@ let myLibrary = [
 const modal = document.querySelector("#bookModal");
 const newBook = document.querySelector("#new-book-btn");
 const span = document.querySelector(".close");
+
+//button selectors
 const addBtn = document.querySelector("#add-btn");
+const deleteBtn = document.querySelectorAll("#delete-btn");
+
+//inputs selectors
 const titleInput = document.querySelector("#title");
 const authorInput = document.querySelector("#author");
 const pagesInput = document.querySelector("#pages");
@@ -112,7 +117,7 @@ function addElem(book) {
   <span class="slider round"></span>
   </label> <p class='label-read'>Read</p>
   </div> |
-  <button class="delete-btn">
+  <button class="delete-btn" onclick='deleteTest(event)'>
   ${deleteSVG}
   </button>
   </div>`;
@@ -137,7 +142,7 @@ function displayBooks() {
     <span class="slider round"></span> 
     </label> <p class='label-read'>Read</p>
     </div> |
-    <button class="delete-btn">
+    <button class="delete-btn" onclick='deleteTest(event)'>
     ${deleteSVG}
     </button>
     </div>`;
@@ -164,14 +169,12 @@ window.onclick = function (event) {
   }
 };
 
-const checkBtn = document.querySelectorAll("input[type=checkbox");
-
-checkBtn.forEach((btn) => {
-  btn.addEventListener("change", (event) => {
-    console.log(event.currentTarget);
-  });
-});
-
+function deleteTest(event) {
+  let objID = event.currentTarget.parentNode.parentNode.id;
+  let testingObj = myLibrary.find((book) => book.id == objID);
+  myLibrary.splice(myLibrary.indexOf(testingObj), 1);
+  event.currentTarget.parentNode.parentNode.remove();
+}
 /*
 When you create a new book. Generate a new id on the object and on the button
 
