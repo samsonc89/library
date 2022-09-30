@@ -7,7 +7,7 @@ let myLibrary = [
     pages: 309,
     "date added": "08-30-2022",
     id: 123456,
-    status: false,
+    status: true,
   },
   {
     title: "The Alchemist",
@@ -114,11 +114,11 @@ function addElem(book) {
   <p class="date-added">Added: ${book["date added"]}</p>
   <div class="card-btns">
   <div class='read-switch'>
-  <p class='label-unread'>Not Read</p>
+  <p class='label-status '>${book.status ? "Read" : "Not Read"}</p>
   <label class="switch">
   <input type="checkbox" name='read' ${book.status == true ? "checked" : ""}>
   <span class="slider round"></span>
-  </label> <p class='label-read'>Read</p>
+  </label>
   </div> |
   <button class="delete-btn">
   ${deleteSVG}
@@ -139,10 +139,9 @@ function displayBooks() {
     <p class="date-added">Added: ${book["date added"]}</p>
     <div class="card-btns">
     <div class='read-switch'>
-    <p class='label-read hidden'>Read</p>
-    <p class='label-unread '>Not Read</p>
+    <p class='label-status '>${book.status ? "Read" : "Not Read"}</p>
     <label class="switch">
-    <input type="checkbox" name='read'>
+    <input type="checkbox" name='read' ${book.status == true ? "checked" : ""}>
     <span class="slider round"></span> 
     </label> 
     </div> |
