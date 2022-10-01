@@ -83,6 +83,32 @@ function generateID() {
   return randomID;
 }
 
+//Display all books
+function displayBooks() {
+  cardContainer.innerHTML = "";
+  myLibrary.forEach((book) => {
+    const html = `<div class="card" id='${book.id}'>
+    <h3 class="book-title">${book.title}</h3>
+    <p class="book-author">${book.author}</p>
+    <p class="pages">${book.pages} pages</p>
+    <p class="date-added">Added: ${book["date added"]}</p>
+    <div class="card-btns">
+    <div class='read-switch'>
+    <p class='label-status '>${book.status == true ? "Read" : "Not Read"}</p>
+    <label class="switch">
+    <input type="checkbox" name='read' ${book.status == true ? "checked" : ""}>
+    <span class="slider round"></span> 
+    </label> 
+    </div> |
+    <button class="delete-btn" >
+    ${deleteSVG}
+    </button>
+    </div>`;
+
+    cardContainer.insertAdjacentHTML("beforeend", html);
+  });
+}
+
 function addBookToLibrary() {
   let newBook = new Book(
     titleInput.value,
@@ -109,51 +135,6 @@ function addElem(book) {
   book["date added"] = today = mm + "-" + dd + "-" + yyyy;
 
   displayBooks();
-  // const html = `<div class="card" id='${book.id}'>
-  // <h3 class="book-title">${book.title}</h3>
-  // <p class="book-author">${book.author}</p>
-  // <p class="pages">${book.pages} pages</p>
-  // <p class="date-added">Added: ${book["date added"]}</p>
-  // <div class="card-btns">
-  // <div class='read-switch'>
-  // <p class='label-status '>${book.status ? "Read" : "Not Read"}</p>
-  // <label class="switch">
-  // <input type="checkbox" name='read' ${book.status == true ? "checked" : ""}>
-  // <span class="slider round"></span>
-  // </label>
-  // </div> |
-  // <button class="delete-btn">
-  // ${deleteSVG}
-  // </button>
-  // </div>`;
-
-  // cardContainer.insertAdjacentHTML("beforeend", html);
-}
-
-//Display all books
-function displayBooks() {
-  cardContainer.innerHTML = "";
-  myLibrary.forEach((book) => {
-    const html = `<div class="card" id='${book.id}'>
-    <h3 class="book-title">${book.title}</h3>
-    <p class="book-author">${book.author}</p>
-    <p class="pages">${book.pages} pages</p>
-    <p class="date-added">Added: ${book["date added"]}</p>
-    <div class="card-btns">
-    <div class='read-switch'>
-    <p class='label-status '>${book.status == true ? "Read" : "Not Read"}</p>
-    <label class="switch">
-    <input type="checkbox" name='read' ${book.status == true ? "checked" : ""}>
-    <span class="slider round"></span> 
-    </label> 
-    </div> |
-    <button class="delete-btn" >
-    ${deleteSVG}
-    </button>
-    </div>`;
-
-    cardContainer.insertAdjacentHTML("beforeend", html);
-  });
 }
 
 displayBooks();
