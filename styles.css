@@ -37,10 +37,16 @@
   height: 45px;
   width: 45px;
   padding: 5px;
+  box-shadow: 2px 2px black;
 }
 .toolbar-icon {
   height: 100%;
   width: 100%;
+}
+
+#sort-icon {
+  height: 75%;
+  width: 75%;
 }
 /* The Modal (background) */
 .modal {
