@@ -31,10 +31,12 @@
 }
 
 .toolbar-btn {
-  background-color: #a5c8e4;
-  border: NONE;
-  height: 40px;
-  width: 40px;
+  background-color: #e4c1a5;
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 45px;
+  width: 45px;
+  padding: 5px;
 }
 .toolbar-icon {
   height: 100%;
@@ -101,6 +103,7 @@ input::-webkit-inner-spin-button {
   display: flex;
   flex-direction: column;
   border: 1px solid black;
+  border-radius: 10px;
   box-shadow: 5px 5px black;
 }
 
