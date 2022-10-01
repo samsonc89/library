@@ -38,6 +38,9 @@
   width: 45px;
   padding: 5px;
   box-shadow: 2px 2px black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .toolbar-icon {
   height: 100%;
@@ -45,8 +48,8 @@
 }
 
 #sort-icon {
-  height: 75%;
-  width: 75%;
+  height: 65%;
+  width: 65%;
 }
 /* The Modal (background) */
 .modal {
@@ -190,7 +193,7 @@ input::-webkit-inner-spin-button {
 }
 
 input:checked + .slider {
-  background-color: #00da6d;
+  background-color: #79f670;
 }
 
 input:focus + .slider {
