@@ -154,6 +154,35 @@ function addElem(book) {
 
 displayBooks(myLibrary);
 
+function deleteCard(event) {
+  let objID = event.target.closest(".card").id;
+  let testingObj = myLibrary.find((book) => book.id == objID);
+  myLibrary.splice(myLibrary.indexOf(testingObj), 1);
+  event.target.closest(".card").remove();
+}
+
+function statusChange(event) {
+  let objID = event.target.closest(".card").id;
+  let testingObj = myLibrary.find((book) => book.id == objID);
+  let uncleElem = event.target.closest("label").previousElementSibling;
+  testingObj.status = !testingObj.status;
+  uncleElem.textContent = `${testingObj.status == true ? "Read" : "Not Read"}`;
+}
+
+function sortBooks() {
+  let parameter = event.target.textContent.toLowerCase();
+  if (parameter === "read") {
+    parameter = "status";
+  }
+  myLibrary.sort(function (x, y) {
+    let a = x[`${parameter}`],
+      b = y[`${parameter}`];
+    return a == b ? 0 : a > b ? 1 : -1;
+  });
+  console.log(parameter);
+  displayBooks(myLibrary);
+}
+
 //Buttons/ Click events
 addBtn.addEventListener("click", addBookToLibrary);
 
@@ -184,13 +213,6 @@ document.querySelector(".new-book-form").addEventListener("keyup", (event) => {
   event.preventDefault();
 });
 
-function deleteCard(event) {
-  let objID = event.target.closest(".card").id;
-  let testingObj = myLibrary.find((book) => book.id == objID);
-  myLibrary.splice(myLibrary.indexOf(testingObj), 1);
-  event.target.closest(".card").remove();
-}
-
 cardContainer.addEventListener("click", (event) => {
   if (event.target && event.target.classList.contains("slider")) {
     statusChange(event);
@@ -198,21 +220,3 @@ cardContainer.addEventListener("click", (event) => {
     deleteCard(event);
   }
 });
-function statusChange(event) {
-  let objID = event.target.closest(".card").id;
-  let testingObj = myLibrary.find((book) => book.id == objID);
-  let uncleElem = event.target.closest("label").previousElementSibling;
-  testingObj.status = !testingObj.status;
-  uncleElem.textContent = `${testingObj.status == true ? "Read" : "Not Read"}`;
-}
-
-function sortBooks() {
-  let parameter = event.target.textContent.toLowerCase();
-  myLibrary.sort(function (x, y) {
-    let a = x[`${parameter}`],
-      b = y[`${parameter}`];
-    return a == b ? 0 : a > b ? 1 : -1;
-  });
-  console.log(parameter);
-  displayBooks(myLibrary);
-}
