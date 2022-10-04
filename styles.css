@@ -43,7 +43,7 @@
   justify-content: center;
 }
 
-.toolbar-btn:active {
+button:active {
   background-color: #dca273;
   box-shadow: 0 2px #666;
   transform: translateY(4px);
