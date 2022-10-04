@@ -198,5 +198,6 @@ label read is hidden
 */
 
 function showDropdown(event) {
+  dropDown.forEach((content) => content.classList.remove("show"));
   event.target.closest("button").nextElementSibling.classList.toggle("show");
 }
