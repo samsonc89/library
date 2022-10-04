@@ -26,6 +26,7 @@ const span = document.querySelector(".close");
 //button selectors
 const addBtn = document.querySelector("#add-btn");
 const deleteBtn = document.querySelectorAll("#delete-btn");
+const clearBtn = document.querySelector("#clear-btn");
 
 //inputs selectors
 const titleInput = document.querySelector("#title");
@@ -37,15 +38,7 @@ const deleteSVG = `<svg class='delete-svg' style="width:22px;height:22px" viewBo
 <path fill="currentColor" d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" />
 </svg>`;
 
-//stop page from refreshing when pushing enter
-document.querySelector(".new-book-form").addEventListener("keyup", (event) => {
-  if (event.key !== "Enter") return;
-  addBtn.click();
-  event.preventDefault();
-});
-
 function clearModal() {
-  modal.style.display = "none";
   titleInput.value = authorInput.value = pagesInput.value = "";
   statusInput.checked = false;
 }
@@ -121,6 +114,7 @@ function addBookToLibrary() {
   myLibrary.push(newBook);
   console.log(newBook);
   addElem(newBook);
+  modal.style.display = "none";
   clearModal();
   console.log(myLibrary);
   // displayBooks();
@@ -138,6 +132,7 @@ function addElem(book) {
 }
 
 displayBooks();
+
 //Buttons/ Click events
 addBtn.addEventListener("click", addBookToLibrary);
 
@@ -146,14 +141,27 @@ newBook.onclick = function () {
 };
 
 span.onclick = function () {
+  modal.style.display = "none";
   clearModal();
 };
 
 window.onclick = function (event) {
   if (event.target == modal) {
+    modal.style.display = "none";
     clearModal();
   }
 };
+
+clearBtn.onclick = function () {
+  clearModal();
+};
+
+//stop page from refreshing when pushing enter
+document.querySelector(".new-book-form").addEventListener("keyup", (event) => {
+  if (event.key !== "Enter") return;
+  addBtn.click();
+  event.preventDefault();
+});
 
 function deleteCard(event) {
   let objID = event.target.closest(".card").id;
