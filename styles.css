@@ -51,7 +51,7 @@
 }
 
 #login {
-  background-color: #c0eccc;
+  background-color: #8ed5a1;
   font-weight: bold;
   width: 80px;
   height: 35px;
@@ -103,7 +103,7 @@ button:active {
   text-align: start;
 } */
 
-.dropdown-btn {
+.dropdown-content button {
   height: 35px;
   border-radius: 0;
 }
