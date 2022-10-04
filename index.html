@@ -189,13 +189,14 @@
         <div id="content-toolbar">
           <button class="toolbar-btn" id="new-book-btn"><img class="toolbar-icon" src="Assets/book.png"></button>
           <div class="dropdown">
-            <button class="toolbar-btn" id="sort-btn" onclick="showDropdown()">
+            <button class="toolbar-btn" id="sort-btn" onclick="showDropdown(event)">
               <img class="toolbar-icon"id='sort-icon'src="Assets/sort.png">
             </button>
             <div id="sort-dropdown" class="dropdown-content">
-              <button>Name</button>
-              <button>Pages</button>
-              <button>Date Added</button>
+              <button class="dropdown-btn">Title</button>
+              <button class="dropdown-btn">Author</button>
+              <button class="dropdown-btn">Pages</button>
+              <button class="dropdown-btn">Date Added</button>
             </div>
           </div>
           <button class="toolbar-btn" id="filter-btn"><img  class="toolbar-icon" src="Assets/filter.png"></button>
