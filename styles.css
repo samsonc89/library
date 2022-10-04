@@ -88,7 +88,17 @@ button:active {
   border: 1px solid #888;
   width: 40%; /* Could be more or less, depending on screen size */
 }
+.modal-content input {
+  width: 100%;
+  clear: both;
+}
 
+#status-question {
+  display: inline-block;
+}
+#status {
+  width: 20px;
+}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
