@@ -56,7 +56,7 @@ function generateBooks() {
       status: false,
     }
   );
-  displayBooks();
+  displayBooks(myLibrary);
 }
 
 function clearModal() {
@@ -98,7 +98,7 @@ function generateID() {
 }
 
 //Display all books
-function displayBooks() {
+function displayBooks(myLibrary) {
   cardContainer.innerHTML = "";
   myLibrary.forEach((book) => {
     const html = `<div class="card" id='${book.id}'>
@@ -149,10 +149,10 @@ function addElem(book) {
 
   book["date added"] = today = mm + "-" + dd + "-" + yyyy;
 
-  displayBooks();
+  displayBooks(myLibrary);
 }
 
-displayBooks();
+displayBooks(myLibrary);
 
 //Buttons/ Click events
 addBtn.addEventListener("click", addBookToLibrary);
@@ -204,4 +204,15 @@ function statusChange(event) {
   let uncleElem = event.target.closest("label").previousElementSibling;
   testingObj.status = !testingObj.status;
   uncleElem.textContent = `${testingObj.status == true ? "Read" : "Not Read"}`;
+}
+
+function sortBooks() {
+  let parameter = event.target.textContent.toLowerCase();
+  myLibrary.sort(function (x, y) {
+    let a = x[`${parameter}`],
+      b = y[`${parameter}`];
+    return a == b ? 0 : a > b ? 1 : -1;
+  });
+  console.log(parameter);
+  displayBooks(myLibrary);
 }
