@@ -61,6 +61,7 @@ button:active {
   box-shadow: 0 2px #666;
   transform: translateY(4px);
 }
+
 .toolbar-icon {
   height: 100%;
   width: 100%;
@@ -96,12 +97,20 @@ button:active {
   width: 100%;
   clear: both;
 }
+.modal-content div {
+  margin-top: 10px;
+}
 
 #status-question {
   display: inline-block;
 }
 #status {
   width: 20px;
+}
+
+#add-btn,
+#clear-btn {
+  padding: 5px;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
