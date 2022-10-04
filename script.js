@@ -189,3 +189,7 @@ label unread is hidden
 else 
 label read is hidden
 */
+
+function showDropdown() {
+  document.querySelector("#sort-dropdown").classList.toggle("show");
+}
