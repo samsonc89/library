@@ -26,6 +26,7 @@ const span = document.querySelector(".close");
 //button selectors
 const addBtn = document.querySelector("#add-btn");
 const clearBtn = document.querySelector("#clear-btn");
+const dropDown = document.querySelectorAll(".dropdown-content");
 
 //inputs selectors
 const titleInput = document.querySelector("#title");
@@ -145,9 +146,15 @@ span.onclick = function () {
 };
 
 window.onclick = function (event) {
-  if (event.target == modal) {
+  if (event.target === modal) {
     modal.style.display = "none";
     clearModal();
+  }
+  if (
+    !event.target.matches(".dropdown-btn") &&
+    !event.target.closest(".dropdown")
+  ) {
+    dropDown.forEach((content) => content.classList.remove("show"));
   }
 };
 
@@ -190,6 +197,6 @@ else
 label read is hidden
 */
 
-function showDropdown() {
-  document.querySelector("#sort-dropdown").classList.toggle("show");
+function showDropdown(event) {
+  event.target.closest("button").nextElementSibling.classList.toggle("show");
 }
