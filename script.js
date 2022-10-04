@@ -1,23 +1,6 @@
 "use strict";
 
-let myLibrary = [
-  {
-    title: "Harry Potter & The Sorcerer's Stone",
-    author: "J.K. Rowling",
-    pages: 309,
-    "date added": "08-30-2022",
-    id: 123456,
-    status: true,
-  },
-  {
-    title: "The Alchemist",
-    author: "Paulo Coelho",
-    pages: 197,
-    "date added": "08-30-2022",
-    id: 234567,
-    status: false,
-  },
-];
+let myLibrary = [];
 
 const modal = document.querySelector("#bookModal");
 const newBook = document.querySelector("#new-book-btn");
@@ -37,6 +20,44 @@ const cardContainer = document.querySelector("#card-container");
 const deleteSVG = `<svg class='delete-svg' style="width:22px;height:22px" viewBox="0 0 24 24">
 <path fill="currentColor" d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" />
 </svg>`;
+
+function generateBooks() {
+  myLibrary.push(
+    {
+      title: "Harry Potter & The Sorcerer's Stone",
+      author: "J.K. Rowling",
+      pages: 309,
+      "date added": "06-01-2022",
+      id: 123456,
+      status: true,
+    },
+    {
+      title: "The Alchemist",
+      author: "Paulo Coelho",
+      pages: 197,
+      "date added": "06-30-2022",
+      id: 234567,
+      status: false,
+    },
+    {
+      title: "Outliers",
+      author: "Malcolm Gladwell",
+      pages: 304,
+      "date added": "07-30-2022",
+      id: 234566,
+      status: true,
+    },
+    {
+      title: "In Defense of Food",
+      author: "Michael Pollan",
+      pages: 256,
+      "date added": "07-17-2022",
+      id: 345678,
+      status: false,
+    }
+  );
+  displayBooks();
+}
 
 function clearModal() {
   titleInput.value = authorInput.value = pagesInput.value = "";
@@ -190,14 +211,13 @@ function statusChange(event) {
   testingObj.status = !testingObj.status;
   uncleElem.textContent = `${testingObj.status == true ? "Read" : "Not Read"}`;
 }
-/*
-if the object.status = true
-label unread is hidden
-else 
-label read is hidden
-*/
 
 function showDropdown(event) {
   dropDown.forEach((content) => content.classList.remove("show"));
-  event.target.closest("button").nextElementSibling.classList.toggle("show");
+  if (
+    !event.target
+      .closest("button")
+      .nextElementSibling.classList.contains("show")
+  )
+    event.target.closest("button").nextElementSibling.classList.add("show");
 }
