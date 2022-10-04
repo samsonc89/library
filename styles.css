@@ -273,11 +273,18 @@ input:checked + .slider:before {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
-  min-width: 160px;
+  min-width: 110px;
+  min-height: 40px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
 .show {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+
+.dropdown-btn {
+  height: 35px;
 }
