@@ -171,12 +171,6 @@ window.onclick = function (event) {
     modal.style.display = "none";
     clearModal();
   }
-  if (
-    !event.target.matches(".dropdown-btn") &&
-    !event.target.closest(".dropdown")
-  ) {
-    dropDown.forEach((content) => content.classList.remove("show"));
-  }
 };
 
 clearBtn.onclick = function () {
@@ -210,14 +204,4 @@ function statusChange(event) {
   let uncleElem = event.target.closest("label").previousElementSibling;
   testingObj.status = !testingObj.status;
   uncleElem.textContent = `${testingObj.status == true ? "Read" : "Not Read"}`;
-}
-
-function showDropdown(event) {
-  dropDown.forEach((content) => content.classList.remove("show"));
-  if (
-    !event.target
-      .closest("button")
-      .nextElementSibling.classList.contains("show")
-  )
-    event.target.closest("button").nextElementSibling.classList.add("show");
 }
