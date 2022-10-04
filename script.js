@@ -25,7 +25,6 @@ const span = document.querySelector(".close");
 
 //button selectors
 const addBtn = document.querySelector("#add-btn");
-const deleteBtn = document.querySelectorAll("#delete-btn");
 const clearBtn = document.querySelector("#clear-btn");
 
 //inputs selectors
