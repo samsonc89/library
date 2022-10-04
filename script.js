@@ -92,7 +92,7 @@ function displayBooks() {
     <span class="slider round"></span> 
     </label> 
     </div> |
-    <button class="delete-btn" >
+    <button class="card-btn delete-btn" >
     ${deleteSVG}
     </button>
     </div>`;
