@@ -26,9 +26,14 @@
 
 #content-toolbar {
   display: flex;
-  justify-content: end;
-  gap: 20px;
+  justify-content: space-between;
+
   margin: 20px;
+}
+
+#toolbar-right {
+  display: flex;
+  gap: 20px;
 }
 
 #login,
@@ -68,8 +73,8 @@ button:active {
 }
 
 #sort-icon {
-  height: 65%;
-  width: 65%;
+  height: 85%;
+  width: 85%;
 }
 /* The Modal (background) */
 .modal {
