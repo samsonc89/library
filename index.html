@@ -188,11 +188,11 @@
       <div id="content-wrapper">
         <div id="content-toolbar">
           <button class="toolbar-btn" id="new-book-btn"><img class="toolbar-icon" src="Assets/book.png"></button>
-          <div id="sort-dropdown">
-            <button class="toolbar-btn" id="sort-btn" >
+          <div class="dropdown">
+            <button class="toolbar-btn" id="sort-btn" onclick="showDropdown()">
               <img class="toolbar-icon"id='sort-icon'src="Assets/sort.png">
             </button>
-            <div class="dropdown-content">
+            <div id="sort-dropdown" class="dropdown-content">
               <button>Name</button>
               <button>Pages</button>
               <button>Date Added</button>
