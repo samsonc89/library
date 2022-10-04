@@ -52,6 +52,10 @@
   height: 35px;
 }
 
+button {
+  cursor: pointer;
+}
+
 button:active {
   background-color: #dca273;
   box-shadow: 0 2px #666;
@@ -243,7 +247,6 @@ input:checked + .slider:before {
 .delete-btn {
   background: none;
   border: none;
-  cursor: pointer;
 }
 
 .hidden {
