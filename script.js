@@ -220,3 +220,7 @@ cardContainer.addEventListener("click", (event) => {
     deleteCard(event);
   }
 });
+
+document
+  .querySelectorAll(".sort-dropdown")
+  .forEach((button) => button.addEventListener("click", sortBooks));
