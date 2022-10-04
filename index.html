@@ -197,9 +197,21 @@
               <button class="dropdown-btn">Author</button>
               <button class="dropdown-btn">Pages</button>
               <button class="dropdown-btn">Date Added</button>
+              <button class="dropdown-btn">Read</button>
             </div>
           </div>
-          <button class="toolbar-btn" id="filter-btn"><img  class="toolbar-icon" src="Assets/filter.png"></button>
+          <div class="dropdown">
+            <button class="toolbar-btn" id="filter-btn" onclick="showDropdown(event)">
+              <img  class="toolbar-icon" src="Assets/filter.png">
+          </button>
+          <div id="sort-dropdown" class="dropdown-content">
+            <button class="dropdown-btn">Title</button>
+            <button class="dropdown-btn">Author</button>
+            <button class="dropdown-btn">Pages</button>
+            <button class="dropdown-btn">Date Added</button>
+            <button class="dropdown-btn">Read</button>
+          </div>
+        </div>
         </div>
         <!-- The Modal -->
         <div id="bookModal" class="modal">
