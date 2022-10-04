@@ -30,6 +30,7 @@
   margin: 20px;
 }
 
+#login,
 .toolbar-btn {
   background-color: #e4c1a5;
   border: 1px solid black;
@@ -41,6 +42,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#login {
+  background-color: #f6a8a6;
+  font-weight: bold;
+  width: 80px;
+  height: 35px;
 }
 
 button:active {
