@@ -1,6 +1,7 @@
 "use strict";
 
 let myLibrary = [];
+let sorted = false;
 
 const modal = document.querySelector("#bookModal");
 const newBook = document.querySelector("#new-book-btn");
@@ -178,9 +179,13 @@ function sortBooks() {
   let sortedBooks = myLibrary.slice().sort(function (x, y) {
     let a = x[`${parameter}`],
       b = y[`${parameter}`];
-    return a == b ? 0 : a > b ? 1 : -1;
+    if (sorted) {
+      return a == b ? 0 : a < b ? 1 : -1;
+    } else {
+      return a == b ? 0 : a > b ? 1 : -1;
+    }
   });
-  console.log(parameter);
+  sorted = !sorted;
   displayBooks(sortedBooks);
 }
 
