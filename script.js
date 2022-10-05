@@ -194,9 +194,12 @@ function filterBooks() {
   if (parameter === "read") {
     parameter = "status";
   }
-  let filteredBooks = myLibrary
-    .slice()
-    .filter((book) => book.status == filtered);
+  let filteredBooks = myLibrary.slice().filter((book) => {
+    if (parameter === "status") {
+      return book[parameter] == filtered;
+    }
+  });
+
   filtered = !filtered;
   displayBooks(filteredBooks);
 }
