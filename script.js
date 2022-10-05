@@ -104,8 +104,14 @@ function generateID() {
 function displayBooks(myLibrary) {
   cardContainer.innerHTML = "";
   myLibrary.forEach((book) => {
+    let classSize =
+      book.title.length <= 38
+        ? "normal"
+        : book.title.length > 38 && book.title.length <= 50
+        ? "small"
+        : "tiny";
     const html = `<div class="card" id='${book.id}'>
-    <h3 class="book-title">${book.title}</h3>
+    <h3 class="book-title-${classSize}">${book.title}</h3>
     <p class="book-author">${book.author}</p>
     <p class="pages">${book.pages} pages</p>
     <p class="date-added">Added: ${book["date added"]}</p>
