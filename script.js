@@ -195,6 +195,7 @@ function filterBooks() {
     parameter = "status";
   }
   let filteredBooks = myLibrary.slice().filter((book) => {
+    //Extra conditional to allow for other filters in the future
     if (parameter === "status") {
       return book[parameter] == filtered;
     }
