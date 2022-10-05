@@ -203,9 +203,7 @@ window.onclick = function (event) {
   }
 
   if (event.target !== document.querySelector("#login")) {
-    if (loginContent.classList.contains("show")) {
-      loginContent.classList.remove("show");
-    }
+    loginContent.classList.toggle("show");
   }
 };
 
@@ -233,5 +231,5 @@ document
   .forEach((button) => button.addEventListener("click", sortBooks));
 
 document.querySelector(".login-dropdown").addEventListener("click", () => {
-  loginContent.classList.add("show");
+  loginContent.classList.toggle("show");
 });
