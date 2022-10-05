@@ -99,11 +99,6 @@ button:active {
   flex-direction: column;
 }
 
-/* .login-dropdown:active .dropdown-content {
-  display: flex;
-  flex-direction: column;
-} */
-
 .show {
   display: flex;
   flex-direction: column;
@@ -112,6 +107,10 @@ button:active {
 .dropdown-content button {
   height: 35px;
   border-radius: 0;
+}
+
+button:hover {
+  filter: brightness(85%);
 }
 
 /* The Modal (background) */
