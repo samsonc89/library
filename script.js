@@ -2,6 +2,7 @@
 
 let myLibrary = [];
 let sorted = false;
+let filtered = false;
 
 const modal = document.querySelector("#bookModal");
 const newBook = document.querySelector("#new-book-btn");
@@ -188,6 +189,17 @@ function sortBooks() {
   sorted = !sorted;
   displayBooks(sortedBooks);
 }
+function filterBooks() {
+  let parameter = event.target.textContent.toLowerCase();
+  if (parameter === "read") {
+    parameter = "status";
+  }
+  let filteredBooks = myLibrary
+    .slice()
+    .filter((book) => book.status == filtered);
+  filtered = !filtered;
+  displayBooks(filteredBooks);
+}
 
 //Buttons/ Click events
 addBtn.addEventListener("click", addBookToLibrary);
@@ -236,6 +248,9 @@ cardContainer.addEventListener("click", (event) => {
 document
   .querySelectorAll(".sort-dropdown")
   .forEach((button) => button.addEventListener("click", sortBooks));
+document
+  .querySelectorAll(".filter-dropdown")
+  .forEach((button) => button.addEventListener("click", filterBooks));
 
 document.querySelector(".login-dropdown").addEventListener("click", () => {
   loginContent.classList.toggle("show");
