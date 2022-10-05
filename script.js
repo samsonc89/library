@@ -5,6 +5,7 @@ let myLibrary = [];
 const modal = document.querySelector("#bookModal");
 const newBook = document.querySelector("#new-book-btn");
 const span = document.querySelector(".close");
+const loginContent = document.querySelector(".login-content");
 
 //button selectors
 const addBtn = document.querySelector("#add-btn");
@@ -200,6 +201,12 @@ window.onclick = function (event) {
     modal.style.display = "none";
     clearModal();
   }
+  console.log(event.target);
+  if (event.target !== document.querySelector("#login")) {
+    if (loginContent.classList.contains("show")) {
+      loginContent.classList.remove("show");
+    }
+  }
 };
 
 clearBtn.onclick = function () {
@@ -224,3 +231,7 @@ cardContainer.addEventListener("click", (event) => {
 document
   .querySelectorAll(".sort-dropdown")
   .forEach((button) => button.addEventListener("click", sortBooks));
+
+document.querySelector(".login-dropdown").addEventListener("click", () => {
+  loginContent.classList.add("show");
+});
