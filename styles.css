@@ -79,7 +79,8 @@ button:active {
 
 /* Dropdown content */
 
-.dropdown {
+.dropdown,
+.login-dropdown {
   position: relative;
   display: inline-block;
 }
@@ -98,10 +99,15 @@ button:active {
   flex-direction: column;
 }
 
-/* .show {
+/* .login-dropdown:active .dropdown-content {
   display: flex;
-  text-align: start;
+  flex-direction: column;
 } */
+
+.show {
+  display: flex;
+  flex-direction: column;
+}
 
 .dropdown-content button {
   height: 35px;
