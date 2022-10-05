@@ -111,6 +111,7 @@ button:active {
 
 button:hover {
   filter: brightness(85%);
+  transition: 0.3s;
 }
 
 /* The Modal (background) */
