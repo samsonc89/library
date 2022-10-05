@@ -201,7 +201,7 @@ window.onclick = function (event) {
     modal.style.display = "none";
     clearModal();
   }
-  console.log(event.target);
+
   if (event.target !== document.querySelector("#login")) {
     if (loginContent.classList.contains("show")) {
       loginContent.classList.remove("show");
