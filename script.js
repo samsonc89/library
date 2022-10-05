@@ -203,7 +203,9 @@ window.onclick = function (event) {
   }
 
   if (event.target !== document.querySelector("#login")) {
-    loginContent.classList.toggle("show");
+    if (loginContent.classList.contains("show")) {
+      loginContent.classList.remove("show");
+    }
   }
 };
 
