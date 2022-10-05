@@ -174,13 +174,13 @@ function sortBooks() {
   if (parameter === "read") {
     parameter = "status";
   }
-  myLibrary.sort(function (x, y) {
+  let sortedBooks = myLibrary.slice().sort(function (x, y) {
     let a = x[`${parameter}`],
       b = y[`${parameter}`];
     return a == b ? 0 : a > b ? 1 : -1;
   });
   console.log(parameter);
-  displayBooks(myLibrary);
+  displayBooks(sortedBooks);
 }
 
 //Buttons/ Click events
