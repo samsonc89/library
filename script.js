@@ -67,35 +67,35 @@ function clearModal() {
   statusInput.checked = false;
 }
 
-function Book(title, author, pages, status) {
-  this.title = title
-    .trim()
-    .split(" ")
-    .map((word) => {
-      return word[0].toUpperCase() + word.substring(1).toLowerCase();
-    })
-    .join(" ");
-  this.author = author
-    .trim()
-    .split(" ")
-    .map((word) => {
-      return word[0].toUpperCase() + word.substring(1).toLowerCase();
-    })
-    .join(" ");
-  this.pages = pages;
-  this.status = status;
+class Book {
+  constructor(title, author, pages, status) {
+    this.title = title
+      .trim()
+      .split(" ")
+      .map((word) => {
+        return word[0].toUpperCase() + word.substring(1).toLowerCase();
+      })
+      .join(" ");
+    this.author = author
+      .trim()
+      .split(" ")
+      .map((word) => {
+        return word[0].toUpperCase() + word.substring(1).toLowerCase();
+      })
+      .join(" ");
+    this.pages = pages;
+    this.status = status;
+  }
 }
 
 //Generate ID so it makes deleting the html element and object in array easier
 function generateID() {
   //create random 6 digit "id"
   let randomID = Math.floor(100000 + Math.random() * 900000);
-  console.log(randomID);
 
   //search myLibrary for object that has property value with same id
   while (myLibrary.some((obj) => obj.id === randomID)) {
     randomID = Math.floor(100000 + Math.random() * 900000);
-    console.log(randomID);
   }
   return randomID;
 }
